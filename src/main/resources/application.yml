@@ -1,10 +1,14 @@
 spring:
 #Configuración MySQL
  datasource:
-  url: jdbc:mysql://localhost:3306/tuhuella?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
-  username: root
-  password: root
-  driver-class-name: com.mysql.cj.jdbc.Driver
+  #url: jdbc:mysql://localhost:3306/tuhuella?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+  #username: root
+  #password: root
+  #driver-class-name: com.mysql.cj.jdbc.Driver
+  url: jdbc:postgresql://ec2-54-152-185-191.compute-1.amazonaws.com:5432/dgrkvdfa7viqc
+  username: qecbjrknugghwu
+  password: cc3f5431d462bd1043921436c4121da6d10e670b69be3c06ec6d3882101a6994
+  driver-class-name: org.postgresql.Driver
 #Configuración Creación de tablas (Hibernate)
  jpa:
   show-sql: true
@@ -12,10 +16,34 @@ spring:
    ddl-auto: update
   properties:
    hibernate:
-    dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+    dialect: org.hibernate.dialect.PostgreSQL10Dialect
 #Que thymeleaf no guarde datos en cache
  thymeleaf:
   cache: false
 server:
  port: 8080
+#spring:
+  #autoconfigure:
+   #exclude: org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration
+  #datasource: 
+    #url: jdbc:mysql://localhost:3306/laboratorio?allowPublicKeyRetrieval=true&useSSL=false&useTimezone=true&serverTimezone=GMT&characterEncoding=UTF-8
+    #username: root
+    #password: root
+    #url: jdbc:postgresql://ec2-3-227-181-85.compute-1.amazonaws.com:5432/d2m7vluoqqb2kv
+    #username: juxdimxmtqcduu
+    #password: df4d4cbe5ff24a9419d60dabc305decdd7 #driver-class-name: com.mysql.cj.jdbc.Driver
+    #driver-class-name: org.postgresql.Driver
+  #jpa:
+    #show-sql: true
+    #hibernate:
+      #ddl-auto: update
+    #properties:
+      #hibernate:
+       #dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        #dialect: org.hibernate.dialect.PostgreSQL10Dialect
+  #thymeleaf:
+    #cache: false 
+#server:
+ # port: 8080
 
