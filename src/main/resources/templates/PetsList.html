@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es-AR" xmlns:th="http://www.thymeleaf.org">
+<!-- ARREGLAR MENÚ -->
+
+<head th:replace="/fragments/head :: headList"></head>
+
+<body>
+	<header th:replace="/fragments/header :: header"></header>
+	<main>
+		<div class="titulo2 p-2 text-success">
+			<h2 class="display-3 d-flex justify-content-center">ENCONTRÁ A TU PRÓXIMA MASCOTA</h2>
+		</div>
+
+		<section>
+			<div class="wrap">
+				<div class="tarjeta-wrap" th:each="pet : ${speciesList}"> <a th:if="${pet}" th:href="@{pet/one/__${pet.id}__}">
+					<div class="tarjeta">
+						<div class="adelante card1">
+							<img class="imag" th:src="${'/pet/photo?id=' + pet.id}">
+						</div>
+						<div class="atras">
+							<div>
+								<p th:text="|Mi nombre es ${pet.name} y tengo ${pet.ageInMonths} meses. Soy ${pet.sex} y ${pet.breed}. 
+								Mi peso es de ${pet.weight} kilos y soy de tamaño ${pet.size}.|">
+								</p>
+							</div>
+						</div>
+					</div></a>
+				</div>
+		</section>
+
+		<section class="NextPrevious">
+			<!--<a href="#" class="previous">&laquo; Previous</a>-->
+			<a href="#" class="next">Next &raquo;</a>
+		</section>
+		<br>
+		<br>
+		<br>
+		<br>
+	</main>
+
+	<footer th:replace="/fragments/footer :: footer"></footer>
+
+	<script src="/bootstrap/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
